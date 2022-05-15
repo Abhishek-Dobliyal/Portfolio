@@ -32,7 +32,13 @@ span {
   color: aliceblue;
 }
 
+.btn {
+  position: relative;
+  top: 0;
+  transition: top ease 0.2s;
+}
 .btn:hover {
+  top: -10px;
   border: 1px solid slategray;
 }
 </style>

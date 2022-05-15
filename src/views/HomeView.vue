@@ -1,66 +1,67 @@
 <template>
-  <Header
-    :showTypeWriterEffect="true"
-    :typewriterText="typewriterText"
-    title="Abhishek Dobliyal"
-    subTitle="Greetings from"
-  ></Header>
-  <div class="container my-3 py-2">
-    <div
-      class="row text-center justify-content-center align-content-center g-4 my-3 pb-2"
-    >
-      <div class="col">
-        <InfoCard
-          infoCardIcon="fa fa-circle-info"
-          infoCardIconColor="#5b86e5"
-          infoCardBody="About Me"
-          :showIcon="true"
-          @click="displayAboutMe"
-        ></InfoCard>
+  <div class="container">
+    <Header
+      :showTypeWriterEffect="true"
+      :typewriterText="typewriterText"
+      title="Abhishek Dobliyal"
+      subTitle="Greetings from"
+    ></Header>
+    <div class="container my-3 py-2">
+      <div
+        class="row text-center justify-content-center align-content-center g-4 my-3 pb-2"
+      >
+        <div class="col">
+          <InfoCard
+            infoCardIcon="fa fa-circle-info"
+            infoCardIconColor="#5b86e5"
+            infoCardBody="About Me"
+            :showIcon="true"
+            @click="displayAboutMe"
+          ></InfoCard>
+        </div>
+        <div class="col">
+          <InfoCard
+            infoCardIcon="fa fa-briefcase"
+            infoCardIconColor="#2eaba3"
+            infoCardBody="Work Experience"
+            :showIcon="true"
+            @click="displayExperience"
+          ></InfoCard>
+        </div>
+        <div class="col">
+          <InfoCard
+            infoCardIcon="fa-solid fa-gears"
+            infoCardIconColor="#b32e70"
+            infoCardBody="Technical Skills"
+            :showIcon="true"
+            @click="displaySkills"
+          ></InfoCard>
+        </div>
+        <div class="col">
+          <InfoCard
+            infoCardIcon="fa fa-list-check"
+            infoCardIconColor="#bf962c"
+            infoCardBody="Projects"
+            :showIcon="true"
+            @click="displayProjects"
+          ></InfoCard>
+        </div>
+        <div class="col">
+          <InfoCard
+            infoCardIcon="fa-solid fa-image-portrait"
+            infoCardIconColor="#b53ea7"
+            infoCardBody="Resume"
+            :showIcon="true"
+            @click.prevent="downloadResume"
+          ></InfoCard>
+        </div>
       </div>
-      <div class="col">
-        <InfoCard
-          infoCardIcon="fa fa-briefcase"
-          infoCardIconColor="#2eaba3"
-          infoCardBody="Work Experience"
-          :showIcon="true"
-          @click="displayExperience"
-        ></InfoCard>
+      <hr />
+      <div class="container">
+        <Contact></Contact>
       </div>
-      <div class="col">
-        <InfoCard
-          infoCardIcon="fa-solid fa-gears"
-          infoCardIconColor="#b32e70"
-          infoCardBody="Technical Skills"
-          :showIcon="true"
-          @click="displaySkills"
-        ></InfoCard>
-      </div>
-      <div class="col">
-        <InfoCard
-          infoCardIcon="fa fa-list-check"
-          infoCardIconColor="#bf962c"
-          infoCardBody="Projects"
-          :showIcon="true"
-          @click="displayProjects"
-        ></InfoCard>
-      </div>
-      <div class="col">
-        <InfoCard
-          infoCardIcon="fa-solid fa-image-portrait"
-          infoCardIconColor="#b53ea7"
-          infoCardBody="Resume"
-          :showIcon="true"
-          @click.prevent="downloadResume"
-        ></InfoCard>
-      </div>
-    </div>
-    <hr>
-    <div class="container">
-      <Contact></Contact>
     </div>
   </div>
-  <router-view></router-view>
 </template>
 
 <script>
@@ -110,5 +111,3 @@ export default {
   },
 };
 </script>
-
-<style></style>

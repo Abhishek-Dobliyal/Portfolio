@@ -52,7 +52,7 @@
             infoCardIconColor="#b53ea7"
             infoCardBody="Resume"
             :showIcon="true"
-            @click.prevent="downloadResume"
+            @click="displayResume"
           ></InfoCard>
         </div>
       </div>
@@ -98,16 +98,10 @@ export default {
     displayProjects() {
       this.$router.push("/projects");
     },
-    downloadResume() {
-      const resumePath = "/static/AbhishekDobliyal_Resume.pdf";
-      let link = document.createElement("a");
-      link.setAttribute("href", resumePath);
-      link.setAttribute("download", "");
-      link.style.display = "none";
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-    },
+    displayResume() {
+      let resumeLink = this.$store.getters.getLinkResume;
+      window.open(resumeLink);
+    }
   },
 };
 </script>

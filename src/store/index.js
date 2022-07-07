@@ -22,10 +22,11 @@ export default createStore({
                   the cutting edge tech stacks but also I have got the honor to interact with some of the industry experts and 
                   brilliant minds across the country.`,
       uber: {
-        point1: `Working closely with the Customer Obsession Team.`,
-        point2: `Technology stack includes FusionJS for Frontend, GoLang for Backend & Python for M.L related tasks.`,
-        point3: `More details to be added as my internship advances.`,
-        point4: `Duration May 2022 - July 2022`,
+        point1: `Worked with the Customer Obsession team to proactively resolve cancellation issues of Early Lifecycle Riders.`,
+        point2: `Integrated the Proactive Outreach platform with the Policy Engine service to automate the process of outreach resolution.`,
+        point3: `Developed Deterministic Trigger Controller from scratch to check for automation existence & integrated it with the.`,
+        point4: `Developed a workflow to automatically target the desired riders.`,
+        point5: `Duration May 2022 - July 2022`,
       },
 
       samsung: {
@@ -77,6 +78,8 @@ export default createStore({
         },
       },
     },
+    linkToResume:
+      "https://drive.google.com/file/d/1cipbhdX85qA2ww_VNseKDcZBSFyIAlGS/view?usp=sharing",
   },
   getters: {
     getAboutMeIntroLine(state) {
@@ -109,7 +112,11 @@ export default createStore({
 
     getProjectsIntroLine(state) {
       return state.projects.introLine;
-    }
+    },
+
+    getLinkResume(state) {
+      return state.linkToResume;
+    },
   },
   mutations: {},
   actions: {},

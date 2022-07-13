@@ -79,7 +79,7 @@ export default createStore({
       },
     },
     linkToResume:
-      "https://drive.google.com/file/d/1cipbhdX85qA2ww_VNseKDcZBSFyIAlGS/view?usp=sharing",
+      "https://drive.google.com/file/d/16J9-lHvU7IfSrYP9vuWhhGc5XRoxDWl2/view?usp=sharing",
   },
   getters: {
     getAboutMeIntroLine(state) {

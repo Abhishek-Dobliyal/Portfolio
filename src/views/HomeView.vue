@@ -79,8 +79,8 @@ export default {
   data() {
     return {
       typewriterText: [
-        "a Software Engineering Intern @Uber",
-        "an Ex-Research Intern @Samsung (SRIB)",
+        "an Ex - Software Engineer Intern @Uber",
+        "a Former - Research Intern @Samsung (SRIB)",
         "a Technology Enthusiast",
       ],
     };

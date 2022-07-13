@@ -10,7 +10,7 @@
     <div class="row justify-content-center align-content-center gx-5">
       <div class="col">
         <ListGroup
-          listHeading="Software Engineering Intern @Uber"
+          listHeading="Ex - Software Engineer Intern @Uber"
           :listItems="uberDetails"
           class="mt-4"
           ref="uberExperience"
@@ -19,7 +19,7 @@
       </div>
       <div class="col">
         <ListGroup
-          listHeading="Research Intern @Samsung (SRIB)"
+          listHeading="Former - Research Intern @Samsung (SRIB)"
           :listItems="samsungDetails"
           class="mt-4"
           ref="samsungExperience"

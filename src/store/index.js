@@ -34,7 +34,7 @@ export default createStore({
         point2: `Experimented with UX documents files as well as camera source files validation and parsing techniques.`,
         point3: `Developed a GUI interface for the validation of camera source files and UX document files.`,
         point4: `Incorporated report generation scripts and log parsing scripts within the desktop application.`,
-        point5: `Duration July 2021 - April 2022`,
+        point5: `Duration August 2021 - November 2022`,
       },
     },
 
@@ -79,7 +79,7 @@ export default createStore({
       },
     },
     linkToResume:
-      "https://drive.google.com/file/d/16J9-lHvU7IfSrYP9vuWhhGc5XRoxDWl2/view?usp=sharing",
+      "https://drive.google.com/file/d/1noete1FbWIXxIzPkgAW_ZzMu8M2fzXfB/view?usp=sharing",
   },
   getters: {
     getAboutMeIntroLine(state) {

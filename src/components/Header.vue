@@ -20,10 +20,10 @@
 export default {
   name: "Header",
   props: {
-      showTypeWriterEffect: Boolean,
-      typewriterText: Array,
-      subTitle: String,
-      title: String
+    showTypeWriterEffect: Boolean,
+    typewriterText: Array,
+    subTitle: String,
+    title: String,
   },
   data() {
     return {
@@ -36,6 +36,10 @@ export default {
         tranquil: "-webkit-linear-gradient(100deg, #eecda3, #ef629f)",
         endlessRiver: "-webkit-linear-gradient(100deg, #43cea2, #185a9d)",
         loveNight: "-webkit-linear-gradient(100deg, #4ca1af, #c4e0e5)",
+        shoomHaze: "-webkit-linear-gradient(100deg, #5c258d, #4389a2)",
+        bora: "-webkit-linear-gradient(100deg, #2bc0e4, #eaecc6)",
+        juicyOrange: "-webkit-linear-gradient(100deg, #ff8008, #ffc837)",
+        roseWater: "-webkit-linear-gradient(100deg, #e55d87, #5fc3e4)",
       },
     };
   },
@@ -47,7 +51,7 @@ export default {
       this.$refs.name.style["background"] = randomGradient;
       this.$refs.name.style["-webkit-background-clip"] = "text";
       this.$refs.name.style["-webkit-text-fill-color"] = "transparent";
-    }, 500);
+    }, 850);
   },
 };
 </script>

@@ -11,22 +11,19 @@
       <span class="lead row-heading">Programming Languages</span>
       <div class="row my-3 g-3">
         <div class="col">
-          <InfoCard infoCardBody="Python" imageName="python.png"></InfoCard>
+          <InfoCard infoCardBody="Python" imageName="python.png" :ratings="5"></InfoCard>
         </div>
         <div class="col">
-          <InfoCard infoCardBody="GoLang" imageName="go.png"></InfoCard>
+          <InfoCard infoCardBody="GoLang" imageName="go.png" :ratings="4"></InfoCard>
         </div>
         <div class="col">
-          <InfoCard infoCardBody="JavaScript" imageName="js.png"></InfoCard>
+          <InfoCard infoCardBody="JavaScript" imageName="js.png" :ratings="3"></InfoCard>
         </div>
         <div class="col">
-          <InfoCard infoCardBody="SQL" imageName="sql.png"></InfoCard>
+          <InfoCard infoCardBody="SQL" imageName="sql.png" :ratings="3"></InfoCard>
         </div>
         <div class="col">
-          <InfoCard infoCardBody="Java" imageName="java.png"></InfoCard>
-        </div>
-        <div class="col">
-          <InfoCard infoCardBody="Dart" imageName="dart.png"></InfoCard>
+          <InfoCard infoCardBody="Java" imageName="java.png" :ratings="3"></InfoCard>
         </div>
       </div>
     </div>
@@ -35,31 +32,30 @@
       <span class="lead row-heading">Frameworks</span>
       <div class="row my-3 g-3">
         <div class="col">
-          <InfoCard infoCardBody="VueJS" imageName="vuejs.png"></InfoCard>
+          <InfoCard infoCardBody="VueJS" imageName="vuejs.png" :ratings="4"></InfoCard>
         </div>
         <div class="col">
-          <InfoCard infoCardBody="Flask" imageName="flask.png"></InfoCard>
+          <InfoCard infoCardBody="Flask" imageName="flask.png" :ratings="4"></InfoCard>
         </div>
         <div class="col">
-          <InfoCard infoCardBody="FastAPI" imageName="fastapi.svg"></InfoCard>
+          <InfoCard infoCardBody="FastAPI" imageName="fastapi.svg" :ratings="3"></InfoCard>
         </div>
         <div class="col">
           <InfoCard
             infoCardBody="Bootstrap"
             imageName="bootstrap.png"
+            :ratings="4"
           ></InfoCard>
         </div>
         <div class="col">
           <InfoCard
             infoCardBody="Streamlit"
             imageName="streamlit.webp"
+            :ratings="4"
           ></InfoCard>
         </div>
         <div class="col">
-          <InfoCard infoCardBody="Flutter" imageName="flutter.webp"></InfoCard>
-        </div>
-        <div class="col">
-          <InfoCard infoCardBody="Keras" imageName="keras.png"></InfoCard>
+          <InfoCard infoCardBody="Keras" imageName="keras.png" :ratings="3"></InfoCard>
         </div>
       </div>
     </div>
@@ -68,22 +64,22 @@
       <span class="lead row-heading">Databases/Additional</span>
       <div class="row my-3 g-3">
         <div class="col">
-          <InfoCard infoCardBody="MySQL" imageName="mysql.png"></InfoCard>
+          <InfoCard infoCardBody="MySQL" imageName="mysql.png" :ratings="3"></InfoCard>
         </div>
         <div class="col">
-          <InfoCard infoCardBody="MongoDB" imageName="mongodb.webp"></InfoCard>
+          <InfoCard infoCardBody="MongoDB" imageName="mongodb.webp" :ratings="3"></InfoCard>
         </div>
         <div class="col">
-          <InfoCard infoCardBody="PysonDB" imageName="pysondb.png"></InfoCard>
+          <InfoCard infoCardBody="PysonDB" imageName="pysondb.png" :ratings="4"></InfoCard>
         </div>
         <div class="col">
-          <InfoCard infoCardBody="HTML" imageName="html.png"></InfoCard>
+          <InfoCard infoCardBody="HTML" imageName="html.png" :ratings="4"></InfoCard>
         </div>
         <div class="col">
-          <InfoCard infoCardBody="CSS" imageName="css.png"></InfoCard>
+          <InfoCard infoCardBody="CSS" imageName="css.png" :ratings="3"></InfoCard>
         </div>
         <div class="col">
-          <InfoCard infoCardBody="Git/Github" imageName="github.png"></InfoCard>
+          <InfoCard infoCardBody="Git/Github" imageName="github.png" :ratings="4"></InfoCard>
         </div>
       </div>
     </div>

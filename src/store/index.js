@@ -12,7 +12,7 @@ export default createStore({
         interests: `A tech enthusiast with a learn & grow attitude. I like to explore & learn about various tech stacks and have developed projects
                       with the tech stacks I have come across. Also I have a keen interest is solving problems with the existing knowledge of programming that I 
                       possess.`,
-        otherHobbies: `Apart from all of this, I really enjoy listening to music & playing Call of Duty: Mobile (Asia Rank 78 )`,
+        otherHobbies: `Apart from all of this, I really enjoy listening to music & playing Call of Duty: Mobile (Asia Rank 78 S2)`,
       },
     },
 

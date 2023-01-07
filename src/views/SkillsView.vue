@@ -22,9 +22,6 @@
         <div class="col">
           <InfoCard infoCardBody="SQL" imageName="sql.png" :ratings="3"></InfoCard>
         </div>
-        <div class="col">
-          <InfoCard infoCardBody="Java" imageName="java.png" :ratings="3"></InfoCard>
-        </div>
       </div>
     </div>
     <hr />

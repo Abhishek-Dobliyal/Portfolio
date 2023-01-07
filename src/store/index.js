@@ -7,8 +7,8 @@ export default createStore({
                   I also have specialization in Artifical Intelligence and Machine Learning. I have secured an average CGPA
                   of 8.59 (out of 10).`,
       info: {
-        workExperience: `A Software Engineering Intern @Uber working with the Customer Obsession Team. I was also a Research Intern
-                              @Samsung (SRIB) where I was reponsible for handling Samsung Verification System for Camera Sensors.`,
+        workExperience: `An Ex-Software Engineer Intern @Uber, I have worked with the Customer Obsession Proactive team. 
+                         I was also a Research Intern @Samsung (SRIB) where I was reponsible for handling Samsung Verification System for Camera Sensors.`,
         interests: `A tech enthusiast with a learn & grow attitude. I like to explore & learn about various tech stacks and have developed projects
                       with the tech stacks I have come across. Also I have a keen interest is solving problems with the existing knowledge of programming that I 
                       possess.`,
@@ -79,7 +79,7 @@ export default createStore({
       },
     },
     linkToResume:
-      "https://drive.google.com/file/d/1FzSGEnbVQgwGfmv8GJ5COpJzY42TKgut/view?usp=sharing",
+      "https://drive.google.com/file/d/1P5x-mB-TRjWtj_gUwYWDgcN1eOwXe2bK/view?usp=share_link",
   },
   getters: {
     getAboutMeIntroLine(state) {

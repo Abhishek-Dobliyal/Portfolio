@@ -46,6 +46,13 @@
         </div>
         <div class="col">
           <InfoCard
+            infoCardBody="TailwindCSS"
+            imageName="tailwind.png"
+            :ratings="3"
+          ></InfoCard>
+        </div>
+        <div class="col">
+          <InfoCard
             infoCardBody="Streamlit"
             imageName="streamlit.webp"
             :ratings="4"

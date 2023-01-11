@@ -13,7 +13,8 @@
       </a>
     </div>
     <div class="container my-2">
-      <ul class="list-unstyled my-2">
+      <Spinner v-if="isLoading"></Spinner>
+      <ul class="list-unstyled my-2" v-else>
         <li
           class="text-white bg-dark m-1"
           v-for="(val, key) in data"
@@ -28,13 +29,26 @@
 </template>
 
 <script>
+import Spinner from "@/components/Spinner.vue";
+
 export default {
   name: "ProfileCard",
+  components: {
+    Spinner,
+  },
   props: {
     icon: String,
     title: String,
     data: Object,
     url: String,
+  },
+  computed: {
+    isLoading() {
+      return this.data == null || this.data == undefined;
+    },
+  },
+  mounted() {
+    console.log(this.data);
   },
 };
 </script>

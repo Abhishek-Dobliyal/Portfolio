@@ -48,9 +48,11 @@ export default {
       let gradients = this.linearGradients;
       let keys = Object.keys(gradients);
       let randomGradient = gradients[keys[(keys.length * Math.random()) << 0]];
-      this.$refs.name.style["background"] = randomGradient;
-      this.$refs.name.style["-webkit-background-clip"] = "text";
-      this.$refs.name.style["-webkit-text-fill-color"] = "transparent";
+      if (this.$refs.name) {
+        this.$refs.name.style["background"] = randomGradient;
+        this.$refs.name.style["-webkit-background-clip"] = "text";
+        this.$refs.name.style["-webkit-text-fill-color"] = "transparent";
+      }
     }, 850);
   },
 };

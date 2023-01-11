@@ -6,32 +6,32 @@
         {{ introLine }}
       </p>
     </div>
-    <hr>
-    <div class="row gx-5 gy-3 p-3">
-      <div class="col text-center">
+    <hr />
+    <div class="row p-2">
+      <div class="col-md-6 text-center">
         <ProfileCard
           icon="leetcode.png"
           title="Leetcode"
-          :data="this.$store.getters.getLeetcodeProfile"
-          :url="leetcodeUrl"
+          :data="leetcode.stats"
+          :url="leetcode.profileUrl"
         ></ProfileCard>
         <ProfileCard
           icon="github.png"
           title="Github"
-          :data="this.$store.getters.getLeetcodeProfile"
+          :data="leetcode.stats"
         ></ProfileCard>
       </div>
-      <div class="col text-center mt-3">
+      <div class="col-md-6 text-center">
         <ProfileCard
           icon="hackerrank.png"
           title="Hackerrank"
-          :data="this.$store.getters.getLeetcodeProfile"
+          :data="leetcode.stats"
           :url="leetcodeUrl"
         ></ProfileCard>
         <ProfileCard
           icon="code.jpeg"
           title="CodeStudio"
-          :data="this.$store.getters.getLeetcodeProfile"
+          :data="leetcode.stats"
         ></ProfileCard>
       </div>
     </div>
@@ -51,14 +51,27 @@ export default {
   data() {
     return {
       introLine: "",
-      leetcodeUrl: "https://google.com",
-      hackerrankUrl: "",
-      githubUrl: "",
-      codeStudioUrl: "",
+      leetcode: {
+        profileUrl: "",
+        stats: null,
+        isLaoding: true,
+      },
+      hackerrank: {
+        profileUrl: "",
+        stats: {},
+        isLoading: true,
+      },
     };
   },
-  mounted() {
+  async mounted() {
     this.introLine = this.$store.getters.getProfilesIntroLine;
+    let lcStats = {};
+    let leetcodeStats = await this.$store.dispatch("fetchLeetcodeStats");
+    let stats = await leetcodeStats.json();
+    lcStats.solved = stats.totalSolved;
+    lcStats.ranking = stats.ranking;
+    lcStats.acceptance = stats.acceptanceRate;
+    this.leetcode.stats = lcStats;
   },
 };
 </script>

@@ -1,5 +1,7 @@
 import { createStore } from "vuex";
 
+const leetcodeApi = "https://leetcode-stats-api.herokuapp.com/1nnOcent";
+
 export default createStore({
   state: {
     about: {
@@ -84,11 +86,6 @@ export default createStore({
     profiles: {
       introLine:
         "The learning curve has been full of ups and down. Exploring and Practicing on various platforms has helped me absorb every concept to the core. The profile cards below shall convey the same",
-      leetcode: {
-        username: "1nnOcent",
-        questions: 750,
-        ratings: 1450,
-      },
     },
   },
   getters: {
@@ -136,6 +133,10 @@ export default createStore({
     },
   },
   mutations: {},
-  actions: {},
+  actions: {
+    fetchLeetcodeStats() {
+      return fetch(leetcodeApi);
+    },
+  },
   modules: {},
 });

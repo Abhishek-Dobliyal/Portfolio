@@ -17,7 +17,7 @@
         />
       </button>
       <span class="mt-2"> {{ infoCardBody }} </span>
-      <SkillsRatings v-if="!showIcon" :ratings="this.ratings"></SkillsRatings>
+      <SkillsRatings v-if="!showIcon" :ratings="ratings"></SkillsRatings>
     </div>
   </div>
 </template>

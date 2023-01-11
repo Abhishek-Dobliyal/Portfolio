@@ -55,6 +55,15 @@
             @click="displayResume"
           ></InfoCard>
         </div>
+        <div class="col">
+          <InfoCard
+            infoCardIcon="fa-solid fa-chart-pie"
+            infoCardIconColor="#a5d164"
+            infoCardBody="Profiles"
+            :showIcon="true"
+            @click="displayProfiles"
+          ></InfoCard>
+        </div>
       </div>
       <hr />
       <div class="container">
@@ -102,7 +111,10 @@ export default {
     displayResume() {
       let resumeLink = this.$store.getters.getLinkResume;
       window.open(resumeLink);
-    }
+    },
+    displayProfiles() {
+      this.$router.push("/profiles");
+    },
   },
 };
 </script>

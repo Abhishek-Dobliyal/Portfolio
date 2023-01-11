@@ -5,6 +5,7 @@ import HomeView from "../views/HomeView.vue";
 import WorkExperienceView from "../views/WorkExperienceView.vue"
 import SkillsView from "../views/SkillsView.vue"
 import ProjectsView from "../views/ProjectsView.vue"
+import ProfilesView from "../views/ProfilesView.vue"
 
 const DEFAULT_TITLE = "Portfolio";
 
@@ -33,6 +34,11 @@ const routes = [
     path: "/projects",
     name: "projects",
     component: ProjectsView,
+  },
+  {
+    path: "/profiles",
+    name: "profiles",
+    component: ProfilesView,
   },
 ];
 

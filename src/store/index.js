@@ -80,6 +80,16 @@ export default createStore({
     },
     linkToResume:
       "https://drive.google.com/file/d/1P5x-mB-TRjWtj_gUwYWDgcN1eOwXe2bK/view?usp=share_link",
+
+    profiles: {
+      introLine:
+        "The learning curve has been full of ups and down. Exploring and Practicing on various platforms has helped me absorb every concept to the core. The profile cards below shall convey the same",
+      leetcode: {
+        username: "1nnOcent",
+        questions: 750,
+        ratings: 1450,
+      },
+    },
   },
   getters: {
     getAboutMeIntroLine(state) {
@@ -116,6 +126,13 @@ export default createStore({
 
     getLinkResume(state) {
       return state.linkToResume;
+    },
+
+    getProfilesIntroLine(state) {
+      return state.profiles.introLine;
+    },
+    getLeetcodeProfile(state) {
+      return state.profiles.leetcode;
     },
   },
   mutations: {},

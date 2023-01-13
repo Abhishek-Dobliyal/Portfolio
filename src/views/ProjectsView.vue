@@ -28,7 +28,7 @@
             projectTitle="Calculation Pad"
             projectTitleColor="#4fc298"
             :projectInfo="projectDetails.calculationPad.info"
-            projectLink="https://calculation-pad.herokuapp.com/"
+            projectLink="https://calculation-pad.onrender.com/"
             projectGithub="https://www.github.com/Abhishek-Dobliyal/Calculation-Pad"
           ></ProjectCard>
         </div>

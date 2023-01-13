@@ -7,7 +7,7 @@
       </p>
     </div>
     <hr />
-    <div class="row p-2">
+    <div class="row p-2 gy-3">
       <div class="col-md-6 text-center">
         <ProfileCard
           icon="leetcode.png"
@@ -18,20 +18,22 @@
         <ProfileCard
           icon="github.png"
           title="Github"
-          :data="leetcode.stats"
+          :data="github.stats"
+          :url="github.profileUrl"
         ></ProfileCard>
       </div>
       <div class="col-md-6 text-center">
         <ProfileCard
           icon="hackerrank.png"
-          title="Hackerrank"
-          :data="leetcode.stats"
-          :url="leetcodeUrl"
+          title="HackerRank"
+          :data="hackerrank.stats"
+          :url="hackerrank.profileUrl"
         ></ProfileCard>
         <ProfileCard
           icon="code.jpeg"
           title="CodeStudio"
-          :data="leetcode.stats"
+          :data="codestudio.stats"
+          :url="codestudio.profileUrl"
         ></ProfileCard>
       </div>
     </div>
@@ -52,26 +54,86 @@ export default {
     return {
       introLine: "",
       leetcode: {
-        profileUrl: "",
-        stats: null,
-        isLaoding: true,
+        profileUrl: "https://leetcode.com/1nnOcent/",
+        stats: {},
+      },
+      github: {
+        profileUrl: "https://github.com/Abhishek-Dobliyal",
+        stats: {},
       },
       hackerrank: {
-        profileUrl: "",
+        profileUrl: "https://www.hackerrank.com/abhishek_1512",
         stats: {},
-        isLoading: true,
+      },
+      codestudio: {
+        profileUrl:
+          "https://www.codingninjas.com/codestudio/profile/403a5dcc-77eb-41fb-90de-9b2d46c73de6",
+        stats: {},
       },
     };
   },
-  async mounted() {
+  methods: {
+    async call(actionName) {
+      let resp = await this.$store.dispatch(actionName);
+      return resp.data;
+    },
+
+    async resolvePromises(promises) {
+      let resolved = await promises;
+      return resolved;
+    },
+  },
+  mounted() {
     this.introLine = this.$store.getters.getProfilesIntroLine;
-    let lcStats = {};
-    let leetcodeStats = await this.$store.dispatch("fetchLeetcodeStats");
-    let stats = await leetcodeStats.json();
-    lcStats.solved = stats.totalSolved;
-    lcStats.ranking = stats.ranking;
-    lcStats.acceptance = stats.acceptanceRate;
-    this.leetcode.stats = lcStats;
+
+    this.call("fetchLeetcodeStats").then((stats) => {
+      this.leetcode.stats.solved = stats.totalSolved || "N/A";
+      this.leetcode.stats.acceptance = stats.acceptanceRate + " %" || "N/A";
+      this.leetcode.stats.ranking = stats.ranking || "N/A";
+    });
+
+    this.call("fetchGithubStats").then((stats) => {
+      this.github.stats.username = stats.login || "N/A";
+      this.github.stats.followers = stats.followers || "N/A";
+      this.github.stats.repositories = stats.public_repos || "N/A";
+    });
+
+    this.call("fetchCodestudioStats").then((stats) => {
+      this.codestudio.stats.score = stats.data.current_level.score || "N/A";
+      this.codestudio.stats.title = stats.data.current_level.name || "N/A";
+      this.codestudio.stats.level = stats.data.current_level.level || "N/A";
+    });
+
+    let resolved = this.resolvePromises(
+      this.$store.dispatch("fetchHackerrankStats")
+    );
+    resolved.then((res) => {
+      let [badges, certificates] = res;
+
+      let numBadges = 0,
+        numCertificates = 0; // Badges and Certificates currently acquired
+
+      if (badges.status != "fulfilled") {
+        numBadges = "N/A";
+      }
+      if (certificates.status != "fulfilled") {
+        numCertificates = "N/A";
+      }
+      if (badges.status == "fulfilled" && certificates.status == "fulfilled") {
+        for (let obj of badges.value.data.models) {
+          // Badges earned
+          numBadges += obj.current_points > 0;
+        }
+        for (let obj of certificates.value.data.data) {
+          // Certificates acquired
+          numCertificates += obj.attributes.alloted_at !== null;
+        }
+      }
+
+      this.hackerrank.stats.username = "abhishek_1512";
+      this.hackerrank.stats.badges = numBadges;
+      this.hackerrank.stats.certificates = numCertificates;
+    });
   },
 };
 </script>

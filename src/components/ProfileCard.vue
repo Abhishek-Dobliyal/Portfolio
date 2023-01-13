@@ -1,16 +1,17 @@
 <template>
-  <div class="bg-dark rounded-2 p-2 text-center mx-auto m-3 card">
+  <div
+    class="bg-dark rounded-2 p-2 text-center mx-auto m-3 card"
+    @click="openProfile"
+  >
     <span class="lead text-white my-2">{{ title }}</span>
     <div class="container">
-      <a :href="url">
-        <img
-          :src="require(`@/assets/img/${icon}`)"
-          alt=""
-          width="64"
-          height="64"
-          class="img-fluid rounded-2"
-        />
-      </a>
+      <img
+        :src="require(`@/assets/img/${icon}`)"
+        alt=""
+        width="64"
+        height="64"
+        class="img-fluid rounded-2"
+      />
     </div>
     <div class="container my-2">
       <Spinner v-if="isLoading"></Spinner>
@@ -44,11 +45,13 @@ export default {
   },
   computed: {
     isLoading() {
-      return this.data == null || this.data == undefined;
+      return Object.keys(this.data).length == 0;
     },
   },
-  mounted() {
-    console.log(this.data);
+  methods: {
+    openProfile() {
+      window.open(this.url, "_blank");
+    },
   },
 };
 </script>
@@ -61,7 +64,8 @@ export default {
 }
 .card:hover {
   top: -5px;
-  border: 1px solid slategraycard;
+  border: 1px solid slategray;
+  cursor: pointer;
 }
 
 li {

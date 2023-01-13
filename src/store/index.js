@@ -1,6 +1,18 @@
 import { createStore } from "vuex";
+import axios from "axios";
 
 const leetcodeApi = "https://leetcode-stats-api.herokuapp.com/1nnOcent";
+const githubApi = "https://api.github.com/users/Abhishek-Dobliyal";
+const codeStudioApi =
+  "https://api.codingninjas.com/api/v3/public_section/levels/progress?uuid=403a5dcc-77eb-41fb-90de-9b2d46c73de6";
+
+// Need this to work with CORS (only with Hackerrank)
+const corsProxy = "https://api.codetabs.com/v1/proxy?quest="; // Only supports GET requests
+const hackerrankApi = {
+  badges: "https://www.hackerrank.com/rest/hackers/abhishek_1512/badges",
+  certificates:
+    "https://www.hackerrank.com/community/v1/test_results/hacker_certificate?username=abhishek_1512",
+};
 
 export default createStore({
   state: {
@@ -135,7 +147,19 @@ export default createStore({
   mutations: {},
   actions: {
     fetchLeetcodeStats() {
-      return fetch(leetcodeApi);
+      return axios.get(leetcodeApi);
+    },
+    fetchGithubStats() {
+      return axios.get(githubApi);
+    },
+    fetchCodestudioStats() {
+      return axios.get(codeStudioApi);
+    },
+    fetchHackerrankStats() {
+      return Promise.allSettled([
+        axios.get(corsProxy + hackerrankApi.badges),
+        axios.get(corsProxy + hackerrankApi.certificates),
+      ]);
     },
   },
   modules: {},

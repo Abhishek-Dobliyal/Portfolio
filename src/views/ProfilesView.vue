@@ -73,23 +73,23 @@ export default {
     };
   },
   methods: {
-    async fetchStats(action, platform) {
+    async fetchStats(action, platform, delay = 2000) {
       await this.$store.dispatch(action);
       setTimeout(() => {
         this[platform].stats = this.$store.getters.getProfileStats[platform];
-      }, 4500);
+      }, delay);
     },
   },
   mounted() {
     this.introLine = this.$store.getters.getProfilesIntroLine;
     // Fetch LC Stats
-    this.fetchStats("fetchLeetcodeStats", "leetcode");
+    this.fetchStats("fetchLeetcodeStats", "leetcode", 4500);
     // Fetch Github Stats
     this.fetchStats("fetchGithubStats", "github");
     // Fetch Codestudio Stats
-    this.fetchStats("fetchCodestudioStats", "codestudio");
+    this.fetchStats("fetchCodestudioStats", "codestudio", 2500);
     // Fetch Hackerrank Stats
-    this.fetchStats("fetchHackerrankStats", "hackerrank");
+    this.fetchStats("fetchHackerrankStats", "hackerrank", 3000);
   },
 };
 </script>

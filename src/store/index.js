@@ -161,9 +161,9 @@ export default createStore({
     },
   },
   actions: {
-    fetchLeetcodeStats(state) {
+    async fetchLeetcodeStats(state) {
       let stats = {};
-      axios
+      await axios
         .get(leetcodeApi)
         .then((res) => {
           stats.solved = res.data.totalSolved || "N/A";
@@ -179,9 +179,9 @@ export default createStore({
 
       state.commit("setLeetcodeStats", stats);
     },
-    fetchGithubStats(state) {
+    async fetchGithubStats(state) {
       let stats = {};
-      axios
+      await axios
         .get(githubApi)
         .then((res) => {
           stats.username = res.data.login || "N/A";
@@ -197,9 +197,9 @@ export default createStore({
 
       state.commit("setGithubStats", stats);
     },
-    fetchCodestudioStats(state) {
+    async fetchCodestudioStats(state) {
       let stats = {};
-      axios
+      await axios
         .get(codeStudioApi)
         .then((res) => {
           stats.score = res.data.data.current_level.score || "N/A";
@@ -215,13 +215,15 @@ export default createStore({
 
       state.commit("setCodestudioStats", stats);
     },
-    fetchHackerrankStats(state) {
+    async fetchHackerrankStats(state) {
       let stats = {};
-      let [numBadges, numCertificates] = [0, 0];
+      let numBadges = 0,
+        numCertificates = 0;
       console.log(numBadges, numCertificates);
-      axios
+      await axios
         .get(corsProxy + hackerrankApi.badges)
         .then((res) => {
+          console.log(res.data);
           for (let obj of res.data.models) {
             // Badges earned
             numBadges += obj.current_points > 0;
@@ -231,9 +233,10 @@ export default createStore({
           console.log("Error: ", err);
           numBadges = 8; // Default value for badges
         });
-      axios
+      await axios
         .get(corsProxy + hackerrankApi.certificates)
         .then((res) => {
+          console.log(res.data);
           for (let obj of res.data.data) {
             // Certificates acquired
             numCertificates += obj.attributes.alloted_at !== null;

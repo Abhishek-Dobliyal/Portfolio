@@ -82,7 +82,7 @@ export default {
       await this.$store.dispatch(action);
       setTimeout(() => {
         this[platform].stats = this.$store.getters.getProfileStats[platform];
-      }, 2500);
+      }, 4500);
     },
   },
   mounted() {

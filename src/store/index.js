@@ -99,28 +99,30 @@ export default createStore({
       introLine:
         "The learning curve has been full of ups and down. Exploring and Practicing on various platforms has helped me absorb every concept to the core. The profile cards below shall convey the same",
     },
+
+    stats: {
+      leetcode: {},
+      hackerrank: {},
+      codestudio: {},
+      github: {},
+    },
   },
   getters: {
     getAboutMeIntroLine(state) {
       return state.about.introLine;
     },
-
     getAboutMeListPoints(state) {
       return state.about.info;
     },
-
     getWorkExperienceIntroLine(state) {
       return state.workExperience.introLine;
     },
-
     getUberInternDetails(state) {
       return state.workExperience.uber;
     },
-
     getSamsungInternDetails(state) {
       return state.workExperience.samsung;
     },
-
     getSkillsIntroLine(state) {
       return state.skills.introLine;
     },
@@ -128,38 +130,126 @@ export default createStore({
     getProjectDetails(state) {
       return state.projects;
     },
-
     getProjectsIntroLine(state) {
       return state.projects.introLine;
     },
-
     getLinkResume(state) {
       return state.linkToResume;
     },
-
     getProfilesIntroLine(state) {
       return state.profiles.introLine;
     },
     getLeetcodeProfile(state) {
       return state.profiles.leetcode;
     },
+    getProfileStats(state) {
+      return state.stats;
+    },
   },
-  mutations: {},
+  mutations: {
+    setLeetcodeStats(state, payload) {
+      state.stats.leetcode = payload;
+    },
+    setGithubStats(state, payload) {
+      state.stats.github = payload;
+    },
+    setHackerrankStats(state, payload) {
+      state.stats.hackerrank = payload;
+    },
+    setCodestudioStats(state, payload) {
+      state.stats.codestudio = payload;
+    },
+  },
   actions: {
-    fetchLeetcodeStats() {
-      return axios.get(leetcodeApi);
+    fetchLeetcodeStats(state) {
+      let stats = {};
+      axios
+        .get(leetcodeApi)
+        .then((res) => {
+          stats.solved = res.data.totalSolved || "N/A";
+          stats.acceptance = res.data.acceptanceRate + " %" || "N/A";
+          stats.ranking = res.data.ranking || "N/A";
+        })
+        .catch((err) => {
+          console.log("Error:", err);
+          let stats = {};
+          stats.solved = "750+";
+          stats.acceptance = "55.4 %";
+          stats.ranking = "16850";
+        });
+
+      state.commit("setLeetcodeStats", stats);
     },
-    fetchGithubStats() {
-      return axios.get(githubApi);
+    fetchGithubStats(state) {
+      let stats = {};
+      axios
+        .get(githubApi)
+        .then((res) => {
+          stats.username = res.data.login || "N/A";
+          stats.followers = res.data.followers || "N/A";
+          stats.repositories = res.data.public_repos || "N/A";
+        })
+        .catch((err) => {
+          console.log("Error:", err);
+          stats.username = "Abhishek-Dobliyal";
+          stats.followers = "9";
+          stats.repositories = "30+";
+        });
+
+      state.commit("setGithubStats", stats);
     },
-    fetchCodestudioStats() {
-      return axios.get(codeStudioApi);
+    fetchCodestudioStats(state) {
+      let stats = {};
+      axios
+        .get(codeStudioApi)
+        .then((res) => {
+          stats.score = res.data.data.current_level.score || "N/A";
+          stats.title = res.data.data.current_level.name || "N/A";
+          stats.level = res.data.data.current_level.level || "N/A";
+        })
+        .catch((err) => {
+          console.error("Error:", err);
+          stats.username = "Abhishek-Dobliyal";
+          stats.followers = "9";
+          stats.repositories = "30+";
+        });
+
+      state.commit("setCodestudioStats", stats);
     },
-    fetchHackerrankStats() {
-      return Promise.allSettled([
-        axios.get(corsProxy + hackerrankApi.badges),
-        axios.get(corsProxy + hackerrankApi.certificates),
-      ]);
+    fetchHackerrankStats(state) {
+      let stats = {};
+      let [numBadges, numCertificates] = [0, 0];
+      console.log(numBadges, numCertificates);
+      axios
+        .get(corsProxy + hackerrankApi.badges)
+        .then((res) => {
+          for (let obj of res.data.models) {
+            // Badges earned
+            numBadges += obj.current_points > 0;
+          }
+        })
+        .catch((err) => {
+          console.log("Error: ", err);
+          numBadges = 8; // Default value for badges
+        });
+      axios
+        .get(corsProxy + hackerrankApi.certificates)
+        .then((res) => {
+          for (let obj of res.data.data) {
+            // Certificates acquired
+            numCertificates += obj.attributes.alloted_at !== null;
+          }
+        })
+        .catch((err) => {
+          console.log("Error:", err);
+          numCertificates = 9;
+        });
+
+      stats.username = "abhishek_1512";
+      stats.badges = numBadges;
+      stats.certificates = numCertificates;
+
+      state.commit("setHackerrankStats", stats);
     },
   },
   modules: {},

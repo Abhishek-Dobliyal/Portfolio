@@ -73,105 +73,23 @@ export default {
     };
   },
   methods: {
-    async call(actionName) {
-      let resp = await this.$store.dispatch(actionName);
-      return resp.data;
-    },
-
-    async resolvePromises(promises) {
-      let resolved = await promises;
-      return resolved;
+    async fetchStats(action, platform) {
+      await this.$store.dispatch(action);
+      setTimeout(() => {
+        this[platform].stats = this.$store.getters.getProfileStats[platform];
+      }, 5000);
     },
   },
   mounted() {
     this.introLine = this.$store.getters.getProfilesIntroLine;
-
-    try {
-      this.call("fetchLeetcodeStats").then((stats) => {
-        this.leetcode.stats.solved = stats.totalSolved || "N/A";
-        this.leetcode.stats.acceptance = stats.acceptanceRate + " %" || "N/A";
-        this.leetcode.stats.ranking = stats.ranking || "N/A";
-      });
-    } catch (err) {
-      console.error(err);
-      let stats = {
-        solve: "750+",
-        acceptance: "55 %",
-        ranking: 16000,
-      };
-
-      this.leetcode.stats = stats;
-    }
-
-    this.call("fetchGithubStats").then((stats) => {
-      this.github.stats.username = stats.login || "N/A";
-      this.github.stats.followers = stats.followers || "N/A";
-      this.github.stats.repositories = stats.public_repos || "N/A";
-    });
-
-    try {
-      this.call("fetchCodestudioStats").then((stats) => {
-        this.codestudio.stats.score = stats.data.current_level.score || "N/A";
-        this.codestudio.stats.title = stats.data.current_level.name || "N/A";
-        this.codestudio.stats.level = stats.data.current_level.level || "N/A";
-      });
-    } catch (err) {
-      console.error(err);
-
-      let stats = {
-        score: "30000+",
-        title: "Expert",
-        level: 7,
-      };
-
-      this.codestudio.stats = stats;
-    }
-
-    try {
-      let resolved = this.resolvePromises(
-        this.$store.dispatch("fetchHackerrankStats")
-      );
-      resolved.then((res) => {
-        let [badges, certificates] = res;
-
-        let numBadges = 0,
-          numCertificates = 0; // Badges and Certificates currently acquired
-
-        if (badges.status != "fulfilled") {
-          numBadges = "N/A";
-        }
-        if (certificates.status != "fulfilled") {
-          numCertificates = "N/A";
-        }
-        if (
-          badges.status == "fulfilled" &&
-          certificates.status == "fulfilled"
-        ) {
-          for (let obj of badges.value.data.models) {
-            // Badges earned
-            numBadges += obj.current_points > 0;
-          }
-          for (let obj of certificates.value.data.data) {
-            // Certificates acquired
-            numCertificates += obj.attributes.alloted_at !== null;
-          }
-        }
-
-        this.hackerrank.stats.username = "abhishek_1512";
-        this.hackerrank.stats.badges = numBadges;
-        this.hackerrank.stats.certificates = numCertificates;
-      });
-    } catch (err) {
-      console.error(err);
-
-      let stats = {
-        username: "abhishek_1512",
-        badges: 8,
-        certificates: 9,
-      };
-
-      this.hackerrank.stats = stats;
-    }
+    // Fetch LC Stats
+    this.fetchStats("fetchLeetcodeStats", "leetcode");
+    // Fetch Github Stats
+    this.fetchStats("fetchGithubStats", "github");
+    // Fetch Codestudio Stats
+    this.fetchStats("fetchCodestudioStats", "codestudio");
+    // Fetch Hackerrank Stats
+    this.fetchStats("fetchHackerrankStats", "hackerrank");
   },
 };
 </script>

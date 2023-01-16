@@ -28,7 +28,7 @@
             projectTitle="Calculation Pad"
             projectTitleColor="#4fc298"
             :projectInfo="projectDetails.calculationPad.info"
-            projectLink="https://calculation-pad.herokuapp.com/"
+            projectLink="https://calculation-pad.onrender.com/"
             projectGithub="https://www.github.com/Abhishek-Dobliyal/Calculation-Pad"
           ></ProjectCard>
         </div>
@@ -40,7 +40,7 @@
             projectTitle="Falcon"
             projectTitleColor="#e66079"
             :projectInfo="projectDetails.falcon.info"
-            projectLink="https://fa1con.herokuapp.com/"
+            projectLink="https://falcon-ubso.onrender.com/"
             projectGithub="https://www.github.com/Abhishek-Dobliyal/Falcon"
           ></ProjectCard>
         </div>

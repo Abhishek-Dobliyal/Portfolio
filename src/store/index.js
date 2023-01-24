@@ -19,7 +19,7 @@ export default createStore({
     about: {
       introLine: `I am a student pursuing B.Tech in Computer Science & Engineering from Graphic Era Hill University (Dehradun).
                   I also have specialization in Artifical Intelligence and Machine Learning. I have secured an average CGPA
-                  of 8.59 (out of 10).`,
+                  of 8.5 (out of 10).`,
       info: {
         workExperience: `An Ex-Software Engineer Intern @Uber, I have worked with the Customer Obsession Proactive team. 
                          I was also a Research Intern @Samsung (SRIB) where I was reponsible for handling Samsung Verification System for Camera Sensors.`,

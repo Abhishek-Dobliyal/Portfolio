@@ -1,5 +1,5 @@
 <template>
-  <div class="container my-1">
+  <div class="container ">
     <ul class="list-group rounded-3 shadow-lg py-2">
       <li
         class="list-group-item list-heading text-center"
@@ -11,7 +11,7 @@
       <li
         v-for="value in listItems"
         :key="value"
-        class="list-group-item py-3 text-center"
+        class="list-group-item p-3 text-center"
       >
         <span class="bullet">•</span> {{ value }}
       </li>

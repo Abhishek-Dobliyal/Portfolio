@@ -13,12 +13,21 @@
         <p class="card-text">
           {{ projectDescription }}
         </p>
-        <ListGroup :listItems="projectInfo"></ListGroup>
       </div>
     </div>
-    <div class="container d-flex justify-content-around align-content-center my-2">
-        <a :href="projectLink" target="_blank"><i class="fa-solid fa-eye fa-2x" style="color: #61c993"></i></a>
-        <a :href="projectGithub" target="_blank"><i class="fa-brands fa-github fa-2x" style="color: white"></i></a>
+    <ListGroup :listItems="projectInfo"></ListGroup>
+    <div
+      class="container d-flex justify-content-around align-content-center my-2"
+    >
+      <a :href="projectLink" target="_blank"
+        ><i
+          class="fa-solid fa-eye fa-2x"
+          :style="`color: ${projectTitleColor}`"
+        ></i
+      ></a>
+      <a :href="projectGithub" target="_blank"
+        ><i class="fa-brands fa-github fa-2x" style="color: white"></i
+      ></a>
     </div>
   </div>
 </template>
@@ -47,10 +56,5 @@ export default {
 <style scoped>
 .card-text {
   color: whitesmoke;
-}
-
-.card:hover {
-  cursor: pointer;
-  border: 2px solid slategrey;
 }
 </style>

@@ -17,16 +17,13 @@ const hackerrankApi = {
 export default createStore({
   state: {
     about: {
-      introLine: `I am a student pursuing B.Tech in Computer Science & Engineering from Graphic Era Hill University (Dehradun).
-                  I also have specialization in Artifical Intelligence and Machine Learning. I have secured an average CGPA
-                  of 8.5 (out of 10).`,
+      introLine: `I completed my B.Tech in Computer Science & Engineering from Graphic Era Hill University (Dehradun). During my studies, I specialized in Artificial Intelligence and Machine Learning. I achieved an overall CGPA of 8.2 out of 10. With a strong focus on Backend Development, Data Structures and Algorithms, and a solid foundation in various computer science courses, I possess the technical and analytical aptitude necessary to excel in this role. I am a passionate learner who constantly explores different tech stacks, which enhances my ability to analyze complex problems and quickly adapt to new technologies. Moreover, my previous work experiences have honed my communication skills and sense of responsibility, further preparing me for this position.`,
       info: {
-        workExperience: `An Ex-Software Engineer Intern @Uber, I have worked with the Customer Obsession Proactive team. 
-                         I was also a Research Intern @Samsung (SRIB) where I was reponsible for handling Samsung Verification System for Camera Sensors.`,
+        workExperience: `Currently serving as a Software Engineer I at Uber. Prior to that, I held internships as a Software Engineer at both Uber and Zuma (YC'21). At Uber, I was a part of the Customer Obsession Proactive team, while at Zuma, I contributed to the integrations team. Additionally, I served as a Research Intern at Samsung (SRIB) and was responsible for managing the Samsung Verification System for Camera Sensors.`,
         interests: `A tech enthusiast with a learn & grow attitude. I like to explore & learn about various tech stacks and have developed projects
                       with the tech stacks I have come across. Also I have a keen interest is solving problems with the existing knowledge of programming that I 
                       possess.`,
-        otherHobbies: `Apart from all of this, I really enjoy listening to music & playing Call of Duty: Mobile (Asia Rank 78 S2)`,
+        otherHobbies: `Apart from all of this, I really enjoy listening to music, watching Horror movies & playing Call of Duty: Mobile (Asia Rank 78 S2)`,
       },
     },
 
@@ -48,7 +45,15 @@ export default createStore({
         point2: `Experimented with UX documents files as well as camera source files validation and parsing techniques.`,
         point3: `Developed a GUI interface for the validation of camera source files and UX document files.`,
         point4: `Incorporated report generation scripts and log parsing scripts within the desktop application.`,
-        point5: `Duration August 2021 - November 2022`,
+        point5: `Duration August 2021 - April 2022`,
+      },
+      zuma: {
+        point1: `Developed a TourTypes API from the ground up to retrieve all tour types for a particular community.`,
+        point2: `Integrated UIF client services to facilitate seamless interaction with external third-party services.`,
+        point3:
+          "Implemented the CancelLead API from scratch to automatically cancel the stale leads.",
+        point4: `Written essential unit tests for key packages in the Yardi Integrations service`,
+        point5: `Duration May 2023 - July 2023`,
       },
     },
 
@@ -122,6 +127,9 @@ export default createStore({
     },
     getSamsungInternDetails(state) {
       return state.workExperience.samsung;
+    },
+    getZumaInternDetails(state) {
+      return state.workExperience.zuma;
     },
     getSkillsIntroLine(state) {
       return state.skills.introLine;

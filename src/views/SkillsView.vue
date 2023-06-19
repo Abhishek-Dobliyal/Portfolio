@@ -11,16 +11,46 @@
       <span class="lead row-heading">Programming Languages</span>
       <div class="row my-3 g-3">
         <div class="col">
-          <InfoCard infoCardBody="Python" imageName="python.png" :ratings="5"></InfoCard>
+          <InfoCard
+            infoCardBody="Python"
+            imageName="python.png"
+            :ratings="5"
+            @click="open('https://python.org')"
+          ></InfoCard>
         </div>
         <div class="col">
-          <InfoCard infoCardBody="GoLang" imageName="go.png" :ratings="4"></InfoCard>
+          <InfoCard
+            infoCardBody="GoLang"
+            imageName="go.png"
+            :ratings="4"
+            @click="open('https://go.dev/')"
+          ></InfoCard>
         </div>
         <div class="col">
-          <InfoCard infoCardBody="JavaScript" imageName="js.png" :ratings="3"></InfoCard>
+          <InfoCard
+            infoCardBody="JavaScript"
+            imageName="js.png"
+            :ratings="4"
+            @click="
+              open('https://developer.mozilla.org/en-US/docs/Web/JavaScript')
+            "
+          ></InfoCard>
         </div>
         <div class="col">
-          <InfoCard infoCardBody="SQL" imageName="sql.png" :ratings="3"></InfoCard>
+          <InfoCard
+            infoCardBody="TypeScript"
+            imageName="ts.png"
+            :ratings="3"
+            @click="open('https://www.typescriptlang.org/')"
+          ></InfoCard>
+        </div>
+        <div class="col">
+          <InfoCard
+            infoCardBody="SQL"
+            imageName="sql.png"
+            :ratings="3"
+            @click="open('https://www.mysql.com/')"
+          ></InfoCard>
         </div>
       </div>
     </div>
@@ -29,19 +59,35 @@
       <span class="lead row-heading">Frameworks</span>
       <div class="row my-3 g-3">
         <div class="col">
-          <InfoCard infoCardBody="VueJS" imageName="vuejs.png" :ratings="4"></InfoCard>
+          <InfoCard
+            infoCardBody="VueJS"
+            imageName="vuejs.png"
+            :ratings="4"
+            @click="open('https://vuejs.org/')"
+          ></InfoCard>
         </div>
         <div class="col">
-          <InfoCard infoCardBody="Flask" imageName="flask.png" :ratings="4"></InfoCard>
-        </div>
-        <div class="col">
-          <InfoCard infoCardBody="FastAPI" imageName="fastapi.svg" :ratings="3"></InfoCard>
+          <InfoCard
+            infoCardBody="Flask"
+            imageName="flask.png"
+            :ratings="4"
+            @click="open('https://flask.palletsprojects.com/en/2.3.x/')"
+          ></InfoCard>
         </div>
         <div class="col">
           <InfoCard
             infoCardBody="Bootstrap"
             imageName="bootstrap.png"
             :ratings="4"
+            @click="open('https://getbootstrap.com/')"
+          ></InfoCard>
+        </div>
+        <div class="col">
+          <InfoCard
+            infoCardBody="FastAPI"
+            imageName="fastapi.svg"
+            :ratings="3"
+            @click="open('https://fastapi.tiangolo.com/lo/')"
           ></InfoCard>
         </div>
         <div class="col">
@@ -49,6 +95,7 @@
             infoCardBody="TailwindCSS"
             imageName="tailwind.png"
             :ratings="3"
+            @click="open('https://tailwindui.com/')"
           ></InfoCard>
         </div>
         <div class="col">
@@ -56,34 +103,76 @@
             infoCardBody="Streamlit"
             imageName="streamlit.webp"
             :ratings="4"
+            @click="open('https://streamlit.io/')"
           ></InfoCard>
         </div>
         <div class="col">
-          <InfoCard infoCardBody="Keras" imageName="keras.png" :ratings="3"></InfoCard>
+          <InfoCard
+            infoCardBody="Keras"
+            imageName="keras.png"
+            :ratings="3"
+            @click="open('https://keras.io/')"
+          ></InfoCard>
+        </div>
+        <div class="col">
+          <InfoCard
+            infoCardBody="GoFiber"
+            imageName="fiber.png"
+            :ratings="3"
+            @click="open('https://gofiber.io/')"
+          ></InfoCard>
         </div>
       </div>
     </div>
     <hr />
     <div class="container text-center my-4">
-      <span class="lead row-heading">Databases/Additional</span>
+      <span class="lead row-heading">Databases & Additional</span>
       <div class="row my-3 g-3">
         <div class="col">
-          <InfoCard infoCardBody="MySQL" imageName="mysql.png" :ratings="3"></InfoCard>
+          <InfoCard
+            infoCardBody="MySQL"
+            imageName="mysql.png"
+            :ratings="3"
+            @click="open('https://www.mysql.com/')"
+          ></InfoCard>
         </div>
         <div class="col">
-          <InfoCard infoCardBody="MongoDB" imageName="mongodb.webp" :ratings="3"></InfoCard>
+          <InfoCard
+            infoCardBody="MongoDB"
+            imageName="mongodb.svg"
+            :ratings="3"
+            @click="open('https://www.mongodb.com/')"
+          ></InfoCard>
         </div>
         <div class="col">
-          <InfoCard infoCardBody="PysonDB" imageName="pysondb.png" :ratings="4"></InfoCard>
+          <InfoCard
+            infoCardBody="CSS"
+            imageName="css.png"
+            :ratings="3"
+          ></InfoCard>
         </div>
         <div class="col">
-          <InfoCard infoCardBody="HTML" imageName="html.png" :ratings="4"></InfoCard>
+          <InfoCard
+            infoCardBody="Git"
+            imageName="git.png"
+            :ratings="4"
+            @click="open('https://git-scm.com/')"
+          ></InfoCard>
         </div>
         <div class="col">
-          <InfoCard infoCardBody="CSS" imageName="css.png" :ratings="3"></InfoCard>
+          <InfoCard
+            infoCardBody="VueX"
+            imageName="vuex.png"
+            :ratings="4"
+            @click="open('https://vuex.vuejs.org/')"
+          ></InfoCard>
         </div>
         <div class="col">
-          <InfoCard infoCardBody="Git/Github" imageName="github.png" :ratings="4"></InfoCard>
+          <InfoCard
+            infoCardBody="Custom Tkinter"
+            imageName="tkinter.png"
+            :ratings="4"
+          ></InfoCard>
         </div>
       </div>
     </div>
@@ -107,6 +196,12 @@ export default {
   },
   mounted() {
     this.introLine = this.$store.getters.getSkillsIntroLine;
+  },
+
+  methods: {
+    open(url) {
+      window.open(url, "_blank");
+    },
   },
 };
 </script>

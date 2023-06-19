@@ -6,7 +6,7 @@
       title="Abhishek Dobliyal"
       subTitle="Greetings from"
     ></Header>
-    <div class="container my-3 py-2">
+    <div class="container my-2 py-1 overflow-hidden">
       <div
         class="row text-center justify-content-center align-content-center g-4 my-3 pb-2"
       >
@@ -22,7 +22,7 @@
         <div class="col">
           <InfoCard
             infoCardIcon="fa fa-briefcase"
-            infoCardIconColor="#2eaba3"
+            infoCardIconColor="#70cf8a"
             infoCardBody="Work Experience"
             :showIcon="true"
             @click="displayExperience"
@@ -31,7 +31,7 @@
         <div class="col">
           <InfoCard
             infoCardIcon="fa-solid fa-gears"
-            infoCardIconColor="#b32e70"
+            infoCardIconColor="#a3e3dc"
             infoCardBody="Technical Skills"
             :showIcon="true"
             @click="displaySkills"
@@ -39,8 +39,8 @@
         </div>
         <div class="col">
           <InfoCard
-            infoCardIcon="fa fa-list-check"
-            infoCardIconColor="#bf962c"
+            infoCardIcon="fa-solid fa-laptop-code"
+            infoCardIconColor="#5fadde"
             infoCardBody="Projects"
             :showIcon="true"
             @click="displayProjects"
@@ -49,7 +49,7 @@
         <div class="col">
           <InfoCard
             infoCardIcon="fa-solid fa-image-portrait"
-            infoCardIconColor="#b53ea7"
+            infoCardIconColor="#bf5e9b"
             infoCardBody="Resume"
             :showIcon="true"
             @click="displayResume"
@@ -58,7 +58,7 @@
         <div class="col">
           <InfoCard
             infoCardIcon="fa-solid fa-chart-pie"
-            infoCardIconColor="#a5d164"
+            infoCardIconColor="#eb607a"
             infoCardBody="Profiles"
             :showIcon="true"
             @click="displayProfiles"
@@ -88,9 +88,10 @@ export default {
   data() {
     return {
       typewriterText: [
-        "an Upcoming Software Engineer @Uber",
+        "a Software Engineer @Uber",
+        "an Ex - Sofware Engineer Intern @Zuma (YC'21)",
         "an Ex - Software Engineer Intern @Uber",
-        "a Former - Research Intern @Samsung",
+        "a Ex - Research Intern @Samsung (SRIB)",
         "a Technology Enthusiast",
       ],
     };

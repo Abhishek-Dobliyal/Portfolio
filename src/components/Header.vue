@@ -7,9 +7,9 @@
         <span class="lead" style="color: slategrey">I am</span>
         <vue-writer
           :array="typewriterText"
-          class="type-writer-text"
-          :typeSpeed="75"
-          :eraseSpeed="50"
+          class="type-writer-text mt-2"
+          :typeSpeed="50"
+          :eraseSpeed="35"
         ></vue-writer>
       </div>
     </div>

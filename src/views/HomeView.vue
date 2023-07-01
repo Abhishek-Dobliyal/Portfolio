@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container mt-xxl-5">
     <Header
       :showTypeWriterEffect="true"
       :typewriterText="typewriterText"
@@ -92,7 +92,7 @@ export default {
         "an Ex - Sofware Engineer Intern @Zuma (YC'21)",
         "an Ex - Software Engineer Intern @Uber",
         "a Ex - Research Intern @Samsung (SRIB)",
-        "a Technology Enthusiast",
+        "exploring Data & Backend",
       ],
     };
   },

@@ -1,13 +1,13 @@
 <template>
   <div class="container">
     <Header title="About Me" subTitle="A little"></Header>
-    <div class="container my-3 py-1">
+    <div class="container my-3 py-1 text-center">
       <p class="lead intro-line">{{ this.introLine }}</p>
     </div>
     <hr>
     <ListGroup
       :listItems="bulletItems"
-      listHeading="Few more points about me"
+      listHeading="Explore More About Me"
       :showHeading="true"
       class="my-4"
     ></ListGroup>

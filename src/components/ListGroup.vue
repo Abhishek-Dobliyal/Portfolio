@@ -1,5 +1,5 @@
 <template>
-  <div class="container ">
+  <div class="container">
     <ul class="list-group rounded-3 shadow-lg py-2">
       <li
         class="list-group-item list-heading text-center"

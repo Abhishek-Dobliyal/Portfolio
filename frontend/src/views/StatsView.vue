@@ -81,13 +81,16 @@ export default {
   },
   created() {
     if (Object.keys(this.$store.getters.getStatistics).length == 0) {
+      console.log("HERE")
       this.$store.dispatch("fetchStatistics");
     }
+    console.log(this.$store.getters.getStatistics)
   },
   mounted() {
     // TODO: add watcher to update the stats in real-time rather than visiting homepage
     this.introLine = this.$store.getters.getStatisticsIntroLine;
     let stats = this.$store.getters.getStatistics;
+    console.log(stats)
     let currUTCDate = moment().utc().format("YYYY-MM-DD");
 
     this.max_visits = stats.max_visits;

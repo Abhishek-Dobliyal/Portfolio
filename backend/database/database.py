@@ -1,5 +1,4 @@
 import os
-import logging
 
 from log.logger import Logger
 
@@ -26,7 +25,6 @@ COLLECTION_NAME = "analytics"
 
 class Database:
     def __init__(self, uri=None, database_name=None, collection_name=None):
-        # Retrieve MongoDB configuration from environment variables
         self.mongo_uri = uri if uri else MONGO_URI
         self.database_name = database_name if database_name else DATABASE_NAME
         self._logger = Logger(__name__).get_logger()

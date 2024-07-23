@@ -48,5 +48,4 @@ async def update_stats(stats: UpdateVisitorStats):
 
 @router.on_event("shutdown")
 def shutdown():
-    custom_logger.info("closed connection to database")
     db.close()

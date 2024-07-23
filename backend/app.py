@@ -7,7 +7,7 @@ app = FastAPI()
 app.include_router(router=router)
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=['http://localhost:8080'], 
+    allow_origins=["https://abhishek-dobliyal-portfolio.netlify.app"], 
     allow_credentials=True, 
     allow_methods=["GET", "POST"]
 )

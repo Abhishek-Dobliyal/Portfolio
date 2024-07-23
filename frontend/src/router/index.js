@@ -82,7 +82,7 @@ router.afterEach(async (to, from_) => {
   }
   // Update maximum visits
   if (currStats["max_visits"].cnt < currStats["current_day_cnt"][currUTCDate]) {
-    currStats["max_visits"].cnt = ["current_day_cnt"][currUTCDate];
+    currStats["max_visits"].cnt = currStats["current_day_cnt"][currUTCDate];
     currStats["max_visits"].date = currUTCDate;
   }
 

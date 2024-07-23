@@ -79,6 +79,11 @@ export default {
       },
     };
   },
+  created() {
+    if (Object.keys(this.$store.getters.getStatistics).length == 0) {
+      this.$store.dispatch("fetchStatistics");
+    }
+  },
   mounted() {
     // TODO: add watcher to update the stats in real-time rather than visiting homepage
     this.introLine = this.$store.getters.getStatisticsIntroLine;

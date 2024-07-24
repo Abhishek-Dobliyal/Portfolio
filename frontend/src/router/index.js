@@ -56,7 +56,7 @@ const router = createRouter({
   routes,
 });
 
-router.afterEach(async (to, from_) => {
+router.beofreEach(async (to, from_) => {
   Vue.nextTick(() => {
     document.title = to.meta.title ?? DEFAULT_TITLE;
   });
@@ -66,14 +66,16 @@ router.afterEach(async (to, from_) => {
 
   if (Object.keys(currStats).length == 0) {
     await store.dispatch("fetchStatistics");
+    currStats = structuredClone(store.getters.getStatistics);
+
     // Update total visitors count
     if (from_.name === undefined && to.name == "home") {
-      currStats = structuredClone(store.getters.getStatistics);
       currStats["visitors_cnt"]++;
       // Update current day visitor count
       currStats["current_day_cnt"][currUTCDate]++;
-      store.commit("setStatistics", currStats);
     }
+
+    store.commit("setStatistics", currStats);
     return;
   }
   // Update tab-wise stats

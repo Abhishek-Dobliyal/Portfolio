@@ -63,7 +63,7 @@ export default createStore({
         point2: `Integrated UIF client services to facilitate seamless interaction with external third-party services.`,
         point3:
           "Implemented the CancelLead API from scratch to automatically cancel the stale leads.",
-        point4: `Written essential unit tests for key packages in the Yardi Integrations service`,
+        point4: `Written essential unit tests for key packages in the Yardi Integrations as well as UIF client service`,
         point5: `Duration May 2023 - July 2023`,
       },
     },

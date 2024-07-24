@@ -80,12 +80,7 @@ export default {
     };
   },
   mounted() {
-    // TODO: add watcher to update the stats in real-time rather than visiting homepage
     this.introLine = this.$store.getters.getStatisticsIntroLine;
-    
-    if (Object.keys(this.$store.getters.getStatistics).length == 0) {
-      this.$store.dispatch("fetchStatistics");
-    }
     
     let stats = this.$store.getters.getStatistics;
     let currUTCDate = moment().utc().format("YYYY-MM-DD");

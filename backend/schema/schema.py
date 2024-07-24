@@ -15,6 +15,7 @@ class VisitorStats(BaseModel):
     tab_stats: Dict[str, int]
     max_visits: MaxVisits
     current_day_cnt: Dict[str, int]
+    connect_attempt_cnt: int
 
 
 class UpdateVisitorStats(BaseModel):
@@ -22,6 +23,7 @@ class UpdateVisitorStats(BaseModel):
     tab_stats: Dict[str, int]
     max_visits: MaxVisits
     current_day_cnt: Dict[str, int]
+    connect_attempt_cnt: int
 
 
 class GetResponseModel(BaseModel):

@@ -56,7 +56,7 @@ const router = createRouter({
   routes,
 });
 
-router.beofreEach(async (to, from_) => {
+router.beforeEach(async (to, from_) => {
   Vue.nextTick(() => {
     document.title = to.meta.title ?? DEFAULT_TITLE;
   });

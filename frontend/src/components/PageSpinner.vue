@@ -1,28 +1,20 @@
 <template>
-  <div class="container text-center mt-4">
-    <div class="row g-1">
-      <span class="lead greet">{{ subTitle }}</span>
-      <span ref="name" class="display-3 name">{{ title }}</span>
-      <div class="container py-2" v-if="showTypeWriterEffect">
-        <span class="lead" style="color: slategrey">I am</span>
-        <vue-writer
-          :array="typewriterText"
-          class="type-writer-text mt-2"
-          :typeSpeed="50"
-          :eraseSpeed="35"
-        ></vue-writer>
-      </div>
+  <div
+    class="d-flex flex-column justify-content-center align-items-center vh-100 gap-3"
+  >
+    <div class="row">
+      <div class="spinner-border spinner-size text-light" role="status"></div>
+    </div>
+    <div class="row">
+      <span class="lead fs-3" ref="spinner">{{ title }}</span>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: "Header",
+  name: "PageSpinner",
   props: {
-    showTypeWriterEffect: Boolean,
-    typewriterText: Array,
-    subTitle: String,
     title: String,
   },
   data() {
@@ -45,13 +37,13 @@ export default {
   },
   mounted() {
     setInterval(() => {
-      let gradients = this.linearGradients;
-      let keys = Object.keys(gradients);
-      let randomGradient = gradients[keys[(keys.length * Math.random()) << 0]];
-      if (this.$refs.name) {
-        this.$refs.name.style["background"] = randomGradient;
-        this.$refs.name.style["-webkit-background-clip"] = "text";
-        this.$refs.name.style["-webkit-text-fill-color"] = "transparent";
+      let keys = Object.keys(this.linearGradients);
+      let randomGradient =
+        this.linearGradients[keys[(keys.length * Math.random()) << 0]];
+      if (this.$refs.spinner) {
+        this.$refs.spinner.style["background"] = randomGradient;
+        this.$refs.spinner.style["-webkit-background-clip"] = "text";
+        this.$refs.spinner.style["-webkit-text-fill-color"] = "transparent";
       }
     }, 600);
   },
@@ -59,13 +51,8 @@ export default {
 </script>
 
 <style scoped>
-.greet {
-  color: slategray;
-}
-.type-writer-text {
-  color: whitesmoke;
-}
-.name {
-  color: aquamarine;
+.spinner-size {
+  width: 4rem;
+  height: 4rem;
 }
 </style>

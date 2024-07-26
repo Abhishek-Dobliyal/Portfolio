@@ -61,23 +61,12 @@ router.beforeEach(async (to, from_) => {
     document.title = to.meta.title ?? DEFAULT_TITLE;
   });
 
-  let currStats = structuredClone(store.getters.getStatistics);
-  let currUTCDate = moment().utc().format("YYYY-MM-DD");
-
-  if (Object.keys(currStats).length == 0) {
-    await store.dispatch("fetchStatistics");
-    currStats = structuredClone(store.getters.getStatistics);
-
-    // Update total visitors count
-    if (from_.name === undefined && to.name == "home") {
-      currStats["visitors_cnt"]++;
-      // Update current day visitor count
-      currStats["current_day_cnt"][currUTCDate]++;
-    }
-
-    store.commit("setStatistics", currStats);
+  if (store.getters.getLoadingFlag) {
     return;
   }
+
+  let currUTCDate = moment().utc().format("YYYY-MM-DD");
+  let currStats = structuredClone(store.getters.getStatistics);
   // Update tab-wise stats
   if (to.name != "home") {
     currStats["tab_stats"][to.name]++;
@@ -88,8 +77,8 @@ router.beforeEach(async (to, from_) => {
     currStats["max_visits"].date = currUTCDate;
   }
 
+  console.log(currStats);
   store.commit("setStatistics", currStats);
-  store.dispatch("updateStatistics");
 });
 
 export default router;

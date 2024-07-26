@@ -32,7 +32,7 @@ export default {
     return {
       displayData: 0,
       interval: null,
-      speed: this.animationSpeed ?? 100,
+      speed: this.animationSpeed ?? 150,
     };
   },
   computed: {
@@ -52,7 +52,6 @@ export default {
     steps = steps == 0 ? 1 : steps;
     steps = Number.isInteger(this.data) ? Math.floor(steps) : steps;
     this.interval = setInterval(() => {
-      console.log(this.displayData);
       if (this.displayData < this.data) {
         this.displayData += steps;
       }

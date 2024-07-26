@@ -14,7 +14,7 @@
       />
     </div>
     <div class="container my-2">
-      <Spinner v-if="isLoading"></Spinner>
+      <CardSpinner v-if="isLoading"></CardSpinner>
       <ul class="list-unstyled my-2" v-else>
         <li
           class="text-white bg-dark m-1"
@@ -30,12 +30,12 @@
 </template>
 
 <script>
-import Spinner from "@/components/Spinner.vue";
+import CardSpinner from "@/components/CardSpinner.vue";
 
 export default {
   name: "ProfileCard",
   components: {
-    Spinner,
+    CardSpinner,
   },
   props: {
     icon: String,

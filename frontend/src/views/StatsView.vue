@@ -15,7 +15,7 @@
             textColor="seagreen"
             :data="visitors_cnt"
             title="Total"
-            :animationSpeed="80"
+            :animationSpeed="100"
           >
           </StatsCard>
         </div>
@@ -25,7 +25,7 @@
             textColor="pink"
             :data="mostViewedTab.cnt"
             :title="mostViewedTab.name"
-            :animationSpeed="80"
+            :animationSpeed="100"
           >
           </StatsCard>
         </div>
@@ -44,7 +44,7 @@
             textColor="cyan"
             :data="current_day_cnt"
             title="Visitors Count"
-            :animationSpeed="80"
+            :animationSpeed="120"
           >
           </StatsCard>
         </div>
@@ -54,16 +54,16 @@
             textColor="violet"
             :data="connect_attempt_cnt"
             title="Attempted"
-            :animationSpeed="90"
           >
           </StatsCard>
         </div>
         <div class="col col-md-6">
           <StatsCard
-            subTitle="Minutes"
+            subTitle="Seconds"
             textColor="violet"
-            :data="0.2"
+            :data="avg_session_secs"
             title="Average Session"
+            :animationSpeed="200"
           >
           </StatsCard>
         </div>
@@ -92,6 +92,7 @@ export default {
       mostViewedTab: { name: "", cnt: 0 },
       current_day_cnt: 0,
       connect_attempt_cnt: 0,
+      avg_session_secs: 0,
       mapper: {
         skills: "Technical Skills",
         profiles: "Profiles",
@@ -112,6 +113,7 @@ export default {
     this.visitors_cnt = stats.visitors_cnt;
     this.connect_attempt_cnt = stats.connect_attempt_cnt;
     this.current_day_cnt = stats.current_day_cnt[currUTCDate];
+    this.avg_session_secs = stats.avg_session_seconds;
 
     for (const tab in stats.tab_stats) {
       if (this.mostViewedTab.cnt < stats.tab_stats[tab]) {

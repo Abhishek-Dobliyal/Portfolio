@@ -15,6 +15,7 @@
             textColor="seagreen"
             :data="visitors_cnt"
             title="Total"
+            :animationSpeed="80"
           >
           </StatsCard>
         </div>
@@ -24,6 +25,7 @@
             textColor="pink"
             :data="mostViewedTab.cnt"
             :title="mostViewedTab.name"
+            :animationSpeed="80"
           >
           </StatsCard>
         </div>
@@ -42,6 +44,7 @@
             textColor="cyan"
             :data="current_day_cnt"
             title="Visitors Count"
+            :animationSpeed="80"
           >
           </StatsCard>
         </div>
@@ -51,6 +54,7 @@
             textColor="violet"
             :data="connect_attempt_cnt"
             title="Attempted"
+            :animationSpeed="90"
           >
           </StatsCard>
         </div>
@@ -83,7 +87,7 @@ export default {
   data() {
     return {
       introLine: "",
-      max_visits: {},
+      max_visits: { date: moment.utc().format("YYYY-MM-DD"), cnt: 0 },
       visitors_cnt: 0,
       mostViewedTab: { name: "", cnt: 0 },
       current_day_cnt: 0,

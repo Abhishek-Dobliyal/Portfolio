@@ -16,6 +16,7 @@ class VisitorStats(BaseModel):
     max_visits: MaxVisits
     current_day_cnt: Dict[str, int]
     connect_attempt_cnt: int
+    avg_session_seconds: float
 
 
 class UpdateVisitorStats(BaseModel):
@@ -24,6 +25,7 @@ class UpdateVisitorStats(BaseModel):
     max_visits: MaxVisits
     current_day_cnt: Dict[str, int]
     connect_attempt_cnt: int
+    avg_session_seconds: float
 
 
 class GetResponseModel(BaseModel):

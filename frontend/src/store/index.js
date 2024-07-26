@@ -14,8 +14,8 @@ const hackerrankApi = {
     "https://www.hackerrank.com/community/v1/test_results/hacker_certificate?username=abhishek_1512",
 };
 const statisticsApi = {
-  getStats: "https://portfolio-backend.koyeb.app/get-stats",
-  updateStats: "https://portfolio-backend.koyeb.app/update-stats"
+  getStats: "http://localhost:8000/get-stats",
+  updateStats: "http://localhost:8000/update-stats",
 };
 
 export default createStore({
@@ -128,6 +128,8 @@ export default createStore({
       codestudio: {},
       github: {},
     },
+
+    isLoading: true,
   },
   getters: {
     getAboutMeIntroLine(state) {
@@ -178,6 +180,9 @@ export default createStore({
     getStatistics(state) {
       return state.statistics.stats;
     },
+    getLoadingFlag(state) {
+      return state.isLoading;
+    },
   },
   mutations: {
     setLeetcodeStats(state, payload) {
@@ -194,6 +199,9 @@ export default createStore({
     },
     setStatistics(state, payload) {
       state.statistics.stats = payload;
+    },
+    setLoadingFlag(state, payload) {
+      state.isLoading = payload;
     },
   },
   actions: {
@@ -293,6 +301,7 @@ export default createStore({
       await axios
         .get(statisticsApi.getStats)
         .then((resp) => {
+          state.commit("setLoadingFlag", false);
           state.commit("setStatistics", resp.data.data);
         })
         .catch((err) => {

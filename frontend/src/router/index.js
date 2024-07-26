@@ -77,7 +77,6 @@ router.beforeEach(async (to, from_) => {
     currStats["max_visits"].date = currUTCDate;
   }
 
-  console.log(currStats);
   store.commit("setStatistics", currStats);
 });
 

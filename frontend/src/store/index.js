@@ -14,8 +14,8 @@ const hackerrankApi = {
     "https://www.hackerrank.com/community/v1/test_results/hacker_certificate?username=abhishek_1512",
 };
 const statisticsApi = {
-  getStats: "http://localhost:8000/get-stats",
-  updateStats: "http://localhost:8000/update-stats",
+  getStats: "https://portfolio-backend.koyeb.app/get-stats",
+  updateStats: "https://portfolio-backend.koyeb.app/update-stats"
 };
 
 export default createStore({

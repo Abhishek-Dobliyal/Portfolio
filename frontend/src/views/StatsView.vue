@@ -65,7 +65,6 @@
             textColor="salmon"
             :data="avg_session_secs"
             title="Average Session"
-            :animationSpeed="200"
           >
           </StatsCard>
         </div>

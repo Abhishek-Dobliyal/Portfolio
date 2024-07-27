@@ -1,7 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 import * as Vue from "vue";
 import store from "@/store";
-import moment from "moment";
 
 import AboutMeView from "../views/AboutMeView.vue";
 import HomeView from "../views/HomeView.vue";
@@ -65,16 +64,10 @@ router.beforeEach(async (to, from_) => {
     return;
   }
 
-  let currUTCDate = moment().utc().format("YYYY-MM-DD");
   let currStats = structuredClone(store.getters.getStatistics);
   // Update tab-wise stats
   if (to.name != "home") {
     currStats["tab_stats"][to.name]++;
-  }
-  // Update maximum visits
-  if (currStats["max_visits"].cnt < currStats["current_day_cnt"][currUTCDate]) {
-    currStats["max_visits"].cnt = currStats["current_day_cnt"][currUTCDate];
-    currStats["max_visits"].date = currUTCDate;
   }
 
   store.commit("setStatistics", currStats);

@@ -34,17 +34,17 @@ export default {
     await this.$store.dispatch("fetchStatistics");
     this.sessionStartDate = moment.utc();
 
-    window.addEventListener("beforeunload", () => {
-      let currStats = structuredClone(this.$store.getters.getStatistics);
-      let timeSpent = moment.utc().diff(this.sessionStartDate, "seconds");
-      let currUTCDate = moment().utc().format("YYYY-MM-DD");
+    let currStats = structuredClone(this.$store.getters.getStatistics);
+    let currUTCDate = moment().utc().format("YYYY-MM-DD");
+    // Update total visitors count
+    currStats.visitors_cnt++;
+    // Update current day visitor count
+    currStats.current_day_cnt[currUTCDate]++;
 
-      // Update total visitors count
-      currStats.visitors_cnt++;
-      // Update current day visitor count
-      currStats.current_day_cnt[currUTCDate]++;
+    window.addEventListener("beforeunload", () => {
+      let timeSpent = moment.utc().diff(this.sessionStartDate, "seconds");
       // Update Avg session time of user
-      currStats.avg_session_seconds = parseFloat(
+      currStats.avg_session_seconds += parseFloat(
         (
           (currStats.avg_session_seconds + timeSpent) /
           currStats.visitors_cnt

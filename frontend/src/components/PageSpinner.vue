@@ -33,10 +33,11 @@ export default {
         juicyOrange: "-webkit-linear-gradient(100deg, #ff8008, #ffc837)",
         roseWater: "-webkit-linear-gradient(100deg, #e55d87, #5fc3e4)",
       },
+      interval: undefined,
     };
   },
   mounted() {
-    setInterval(() => {
+    this.interval = setInterval(() => {
       let keys = Object.keys(this.linearGradients);
       let randomGradient =
         this.linearGradients[keys[(keys.length * Math.random()) << 0]];
@@ -46,6 +47,10 @@ export default {
         this.$refs.spinner.style["-webkit-text-fill-color"] = "transparent";
       }
     }, 600);
+  },
+
+  beforeUnmount() {
+    clearInterval(this.interval);
   },
 };
 </script>

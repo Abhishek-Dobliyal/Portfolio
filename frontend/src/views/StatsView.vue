@@ -15,7 +15,7 @@
             textColor="seagreen"
             :data="visitors_cnt"
             title="Total"
-            :animationSpeed="100"
+            :animationSpeed="60"
           >
           </StatsCard>
         </div>
@@ -25,7 +25,7 @@
             textColor="pink"
             :data="mostViewedTab.cnt"
             :title="mostViewedTab.name"
-            :animationSpeed="100"
+            :animationSpeed="60"
           >
           </StatsCard>
         </div>
@@ -35,6 +35,7 @@
             textColor="orange"
             :data="max_visits.cnt"
             :title="max_visits.date"
+            :animationSpeed="60"
           >
           </StatsCard>
         </div>
@@ -54,13 +55,14 @@
             textColor="violet"
             :data="connect_attempt_cnt"
             title="Attempted"
+            :animationSpeed="130"
           >
           </StatsCard>
         </div>
         <div class="col col-md-6">
           <StatsCard
             subTitle="Seconds"
-            textColor="violet"
+            textColor="salmon"
             :data="avg_session_secs"
             title="Average Session"
             :animationSpeed="200"

@@ -40,8 +40,18 @@ export default {
     currStats.visitors_cnt++;
     // Update current day visitor count
     currStats.current_day_cnt[currUTCDate]++;
+    // Update maximum visits
+    if (
+      currStats["max_visits"].cnt < currStats["current_day_cnt"][currUTCDate]
+    ) {
+      currStats["max_visits"].cnt = currStats["current_day_cnt"][currUTCDate];
+      currStats["max_visits"].date = currUTCDate;
+    }
 
-    window.addEventListener("beforeunload", () => {
+    this.$store.commit("setStatistics", currStats);
+
+    window.addEventListener("beforeunload", async () => {
+      let currStats = structuredClone(this.$store.getters.getStatistics);
       let timeSpent = moment.utc().diff(this.sessionStartDate, "seconds");
       // Update Avg session time of user
       currStats.avg_session_seconds += parseFloat(
@@ -50,9 +60,8 @@ export default {
           currStats.visitors_cnt
         ).toFixed(2)
       );
-
       this.$store.commit("setStatistics", currStats);
-      this.$store.dispatch("updateStatistics");
+      await this.$store.dispatch("updateStatistics");
     });
   },
 

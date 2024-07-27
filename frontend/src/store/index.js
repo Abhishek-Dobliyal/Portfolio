@@ -21,7 +21,7 @@ const statisticsApi = {
 export default createStore({
   state: {
     about: {
-      introLine: `I completed my B.Tech in Computer Science & Engineering from Graphic Era Hill University (Dehradun). During my studies, I specialized in Artificial Intelligence and Machine Learning. I achieved an overall CGPA of 8.2 out of 10. With a strong focus on Backend Development, Data Structures and Algorithms, and a solid foundation in various computer science courses, I possess the technical and analytical aptitude necessary to excel in this role. I am a passionate learner who constantly explores different tech stacks, which enhances my ability to analyze complex problems and quickly adapt to new technologies.`,
+      introLine: `A Software Engineer with a strong focus on data. Occasionally, I also work on backend development. Eager to learn and grow in the field of software engineering. Also a passionate learner who constantly explores different tech stacks, which enhances my ability to analyze complex problems and quickly adapt to new technologies.`,
       info: {
         workExperience: `Currently serving as a Software Engineer at Uber. Prior to that, I held internships as a Software Engineer at both Uber and Zuma (YC'21). At Uber, I was a part of the Customer Obsession Proactive team, while at Zuma, I contributed to the integrations team. Additionally, I served as a Research Intern at Samsung (SRIB) and was responsible for managing the Samsung Verification System for Camera Sensors.`,
         interests: `A tech enthusiast with a learn & grow attitude. I like to explore & learn about various tech stacks and have developed projects

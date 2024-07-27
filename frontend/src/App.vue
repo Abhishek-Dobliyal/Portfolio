@@ -54,7 +54,7 @@ export default {
       let currStats = structuredClone(this.$store.getters.getStatistics);
       let timeSpent = moment.utc().diff(this.sessionStartDate, "seconds");
       // Update Avg session time of user
-      currStats.avg_session_seconds += parseFloat(
+      currStats.avg_session_seconds = parseFloat(
         (
           (currStats.avg_session_seconds + timeSpent) /
           currStats.visitors_cnt

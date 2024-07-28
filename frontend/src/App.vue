@@ -1,6 +1,6 @@
 <template>
   <div
-    class="container d-flex align-items-center justify-content-center"
+    class="container d-flex align-items-center justify-content-center animate__animated animate__fadeInLeft"
     v-if="isLoading"
   >
     <PageSpinner title="Loading My Journey"></PageSpinner>

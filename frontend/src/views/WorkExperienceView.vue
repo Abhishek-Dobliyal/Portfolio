@@ -19,7 +19,7 @@
       </div>
       <div class="col-md-6">
         <ListGroup
-          listHeading="SWE @Zuma (YC'21)"
+          listHeading="SWE Intern @Zuma (YC'21)"
           :listItems="zumaDetails"
           class="mt-4"
           ref="zumaExperience"

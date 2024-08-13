@@ -3,7 +3,7 @@
     class="d-flex flex-column justify-content-center align-items-center vh-100 gap-3"
   >
     <div class="row">
-      <div class="spinner-border spinner-size text-light" role="status"></div>
+      <div class="spinner-grow spinner-size" role="status"></div>
     </div>
     <div class="row">
       <span class="lead fs-3" ref="spinner">{{ title }}</span>
@@ -59,5 +59,6 @@ export default {
 .spinner-size {
   width: 4rem;
   height: 4rem;
+  color: grey;
 }
 </style>

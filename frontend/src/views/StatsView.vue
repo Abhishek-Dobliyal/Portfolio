@@ -11,11 +11,11 @@
       >
         <div class="col col-md-6">
           <StatsCard
-            subTitle="Visitors Count"
+            subTitle="Visitors"
             textColor="seagreen"
             :data="visitors_cnt"
             title="Total"
-            :animationSpeed="60"
+            :animationSpeed="45"
           >
           </StatsCard>
         </div>
@@ -44,8 +44,8 @@
             subTitle="Today (UTC)"
             textColor="cyan"
             :data="current_day_cnt"
-            title="Visitors Count"
-            :animationSpeed="120"
+            title="Visitors"
+            :animationSpeed="100"
           >
           </StatsCard>
         </div>
@@ -61,10 +61,10 @@
         </div>
         <div class="col col-md-6">
           <StatsCard
-            subTitle="Seconds"
+            subTitle="Avg. Session"
             textColor="salmon"
             :data="avg_session_secs"
-            title="Average Session"
+            title="Seconds"
           >
           </StatsCard>
         </div>

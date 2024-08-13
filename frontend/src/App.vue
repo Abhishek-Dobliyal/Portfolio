@@ -1,6 +1,6 @@
 <template>
   <div
-    class="container d-flex align-items-center justify-content-center animate__animated animate__fadeInLeft"
+    class="container d-flex align-items-center justify-content-center"
     v-if="isLoading"
   >
     <PageSpinner title="Loading My Journey"></PageSpinner>
@@ -56,8 +56,8 @@ export default {
       // Update Avg session time of user
       currStats.avg_session_seconds = parseFloat(
         (
-          (currStats.avg_session_seconds + timeSpent) /
-          currStats.visitors_cnt
+          currStats.avg_session_seconds +
+          timeSpent / currStats.visitors_cnt
         ).toFixed(2)
       );
       this.$store.commit("setStatistics", currStats);

@@ -56,8 +56,8 @@ export default {
       // Update Avg session time of user
       currStats.avg_session_seconds = parseFloat(
         (
-          currStats.avg_session_seconds +
-          timeSpent / currStats.visitors_cnt
+          (currStats.avg_session_seconds * (currStats.visitors_cnt - 1) + timeSpent)
+           / currStats.visitors_cnt
         ).toFixed(2)
       );
       this.$store.commit("setStatistics", currStats);

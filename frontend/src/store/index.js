@@ -109,7 +109,7 @@ export default createStore({
       },
     },
     linkToResume:
-      "https://drive.google.com/file/d/1bs8fuvi1jBWzJGZlbdHA62YJRyBH2wno/view?usp=sharing",
+      "https://drive.google.com/file/d/1h1MEm_h5jmMzcSxRpa4lmwktLdaww2wD/view",
 
     profiles: {
       introLine:

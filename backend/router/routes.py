@@ -32,8 +32,14 @@ async def get_stats():
 
 @router.post("/update-stats", response_model=UpdateResponseModel)
 async def update_stats(stats: UpdateVisitorStats):
+    stats_dict = stats.dict()
+    avg_session_sec = stats_dict["avg_session_seconds"]
+    if avg_session_sec >= 100:
+        avg_session_sec = avg_session_sec / 2
+
+    stats_dict["avg_session_seconds"] = avg_session_sec
     resp = db.update_document({"_id": ObjectId("669c9fa56b71ca0b7cfd81a5")},
-                              {"$set": stats.dict()})
+                              {"$set": stats_dict})
     if not resp:
         return UpdateResponseModel(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,

@@ -8,7 +8,7 @@
     </div>
     <hr />
     <div class="row p-2 gy-3">
-      <div class="col-md-6 text-center">
+      <div class="row-md-6 text-center">
         <ProfileCard
           icon="leetcode.png"
           title="Leetcode"
@@ -20,20 +20,6 @@
           title="Github"
           :data="github.stats"
           :url="github.profileUrl"
-        ></ProfileCard>
-      </div>
-      <div class="col-md-6 text-center">
-        <ProfileCard
-          icon="hackerrank.png"
-          title="HackerRank"
-          :data="hackerrank.stats"
-          :url="hackerrank.profileUrl"
-        ></ProfileCard>
-        <ProfileCard
-          icon="code.jpeg"
-          title="CodeStudio"
-          :data="codestudio.stats"
-          :url="codestudio.profileUrl"
         ></ProfileCard>
       </div>
     </div>
@@ -61,15 +47,6 @@ export default {
         profileUrl: "https://github.com/Abhishek-Dobliyal",
         stats: {},
       },
-      hackerrank: {
-        profileUrl: "https://www.hackerrank.com/abhishek_1512",
-        stats: {},
-      },
-      codestudio: {
-        profileUrl:
-          "https://www.codingninjas.com/codestudio/profile/403a5dcc-77eb-41fb-90de-9b2d46c73de6",
-        stats: {},
-      },
     };
   },
   methods: {
@@ -86,10 +63,6 @@ export default {
     this.fetchStats("fetchLeetcodeStats", "leetcode", 2300);
     // Fetch Github Stats
     this.fetchStats("fetchGithubStats", "github");
-    // Fetch Codestudio Stats
-    this.fetchStats("fetchCodestudioStats", "codestudio", 2900);
-    // Fetch Hackerrank Stats
-    this.fetchStats("fetchHackerrankStats", "hackerrank", 3000);
   },
 };
 </script>

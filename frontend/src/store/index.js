@@ -3,16 +3,6 @@ import axios from "axios";
 
 const leetcodeApi = "https://leetcode-stats-api.herokuapp.com/1nnOcent";
 const githubApi = "https://api.github.com/users/Abhishek-Dobliyal";
-const codeStudioApi =
-  "https://api.codingninjas.com/api/v3/public_section/levels/progress?uuid=403a5dcc-77eb-41fb-90de-9b2d46c73de6";
-
-// Need this to work with CORS (only with Hackerrank)
-const corsProxy = "https://api.codetabs.com/v1/proxy?quest="; // Only supports GET requests
-const hackerrankApi = {
-  badges: "https://www.hackerrank.com/rest/hackers/abhishek_1512/badges",
-  certificates:
-    "https://www.hackerrank.com/community/v1/test_results/hacker_certificate?username=abhishek_1512",
-};
 const statisticsApi = {
   getStats: "https://portfolio-backend.koyeb.app/get-stats",
   updateStats: "https://portfolio-backend.koyeb.app/update-stats",
@@ -124,8 +114,6 @@ export default createStore({
 
     profileStats: {
       leetcode: {},
-      hackerrank: {},
-      codestudio: {},
       github: {},
     },
 
@@ -191,12 +179,6 @@ export default createStore({
     setGithubStats(state, payload) {
       state.profileStats.github = payload;
     },
-    setHackerrankStats(state, payload) {
-      state.profileStats.hackerrank = payload;
-    },
-    setCodestudioStats(state, payload) {
-      state.profileStats.codestudio = payload;
-    },
     setStatistics(state, payload) {
       state.statistics.stats = payload;
     },
@@ -240,62 +222,6 @@ export default createStore({
         });
 
       state.commit("setGithubStats", stats);
-    },
-    async fetchCodestudioStats(state) {
-      let stats = {};
-      await axios
-        .get(codeStudioApi)
-        .then((res) => {
-          stats.score = res.data.data.current_level.score ?? "N/A";
-          stats.title = res.data.data.current_level.name ?? "N/A";
-          stats.level = res.data.data.current_level.level ?? "N/A";
-        })
-        .catch((err) => {
-          console.error("Error:", err);
-          stats.username = "Abhishek-Dobliyal";
-          stats.followers = "9";
-          stats.repositories = "30+";
-        });
-
-      state.commit("setCodestudioStats", stats);
-    },
-    async fetchHackerrankStats(state) {
-      let stats = {};
-      let numBadges = 0,
-        numCertificates = 0;
-      console.log(numBadges, numCertificates);
-      await axios
-        .get(corsProxy + hackerrankApi.badges)
-        .then((res) => {
-          console.log(res.data);
-          for (let obj of res.data.models) {
-            // Badges earned
-            numBadges += obj.current_points > 0;
-          }
-        })
-        .catch((err) => {
-          console.log("Error: ", err);
-          numBadges = 8; // Default value for badges
-        });
-      await axios
-        .get(corsProxy + hackerrankApi.certificates)
-        .then((res) => {
-          console.log(res.data);
-          for (let obj of res.data.data) {
-            // Certificates acquired
-            numCertificates += obj.attributes.alloted_at !== null;
-          }
-        })
-        .catch((err) => {
-          console.log("Error:", err);
-          numCertificates = 9;
-        });
-
-      stats.username = "abhishek_1512";
-      stats.badges = numBadges;
-      stats.certificates = numCertificates;
-
-      state.commit("setHackerrankStats", stats);
     },
     async fetchStatistics(state) {
       await axios

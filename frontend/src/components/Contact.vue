@@ -26,22 +26,6 @@
           ><i class="fa-brands fa-github fa-2x" style="color: whitesmoke"></i
         ></a>
       </div>
-      <div class="col col-md-1 px-0">
-        <a
-          href="https://t.me/lnn0c3ent"
-          @click="updateContacted"
-          target="_blank"
-          ><i class="fa-brands fa-telegram fa-2x" style="color: #5aa3d1"></i
-        ></a>
-      </div>
-      <div class="col col-md-1 px-0">
-        <a
-          href="https://www.hackerrank.com/abhishek_1512"
-          @click="updateContacted"
-          target="_blank"
-          ><i class="fa-brands fa-hackerrank fa-2x" style="color: #5da854"></i
-        ></a>
-      </div>
     </div>
   </div>
 </template>

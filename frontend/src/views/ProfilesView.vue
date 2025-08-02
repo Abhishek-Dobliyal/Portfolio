@@ -21,6 +21,12 @@
           :data="github.stats"
           :url="github.profileUrl"
         ></ProfileCard>
+        <ProfileCard
+          icon="chess.png"
+          title="Chess.com"
+          :data="chess.stats"
+          :url="chess.profileUrl"
+        ></ProfileCard>
       </div>
     </div>
   </div>
@@ -47,6 +53,10 @@ export default {
         profileUrl: "https://github.com/Abhishek-Dobliyal",
         stats: {},
       },
+      chess: {
+        profileUrl: "https://www.chess.com/member/1nn0c3nt",
+        stats: {},
+      },
     };
   },
   methods: {
@@ -59,10 +69,9 @@ export default {
   },
   mounted() {
     this.introLine = this.$store.getters.getProfilesIntroLine;
-    // Fetch LC Stats
-    this.fetchStats("fetchLeetcodeStats", "leetcode", 2300);
-    // Fetch Github Stats
+    this.fetchStats("fetchLeetcodeStats", "leetcode", 1000);
     this.fetchStats("fetchGithubStats", "github");
+    this.fetchStats("fetchChessStats", "chess", 1500);
   },
 };
 </script>

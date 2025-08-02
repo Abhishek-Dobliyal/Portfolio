@@ -3,6 +3,10 @@ import axios from "axios";
 
 const leetcodeApi = "https://leetcode-stats-api.herokuapp.com/1nnOcent";
 const githubApi = "https://api.github.com/users/Abhishek-Dobliyal";
+const chessApi = {
+  profileInfo: "https://api.chess.com/pub/player/1nn0c3nt",
+  stats: "https://api.chess.com/pub/player/1nn0c3nt/stats",
+};
 const statisticsApi = {
   getStats: "https://portfolio-backend.koyeb.app/get-stats",
   updateStats: "https://portfolio-backend.koyeb.app/update-stats",
@@ -115,6 +119,7 @@ export default createStore({
     profileStats: {
       leetcode: {},
       github: {},
+      chess: {},
     },
 
     isLoading: true,
@@ -185,6 +190,9 @@ export default createStore({
     setLoadingFlag(state, payload) {
       state.isLoading = payload;
     },
+    setChessStats(state, payload) {
+      state.profileStats.chess = payload;
+    },
   },
   actions: {
     async fetchLeetcodeStats(state) {
@@ -233,6 +241,37 @@ export default createStore({
         .catch((err) => {
           console.log("Error:", err);
         });
+    },
+    async fetchChessStats(state) {
+      let profileData = {};
+      await axios
+        .get(chessApi.profileInfo)
+        .then((res) => {
+          console.log(res);
+          profileData.username = res.data.username ?? "1nn0c3nt";
+          profileData.league = res.data.league ?? "N/A";
+        })
+        .catch((err) => {
+          console.log("Err:", err);
+          profileData.username = "1nn0c3nt";
+          profileData.league = "N/A";
+        });
+
+      await axios
+        .get(chessApi.stats)
+        .then((res) => {
+          console.log(res);
+          profileData.rating = res.data.chess_rapid.last.rating ?? "N/A";
+          profileData.tactics = res.data.tactics.highest.rating ?? "N/A";
+        })
+        .catch((err) => {
+          console.log("Err:", err);
+          profileData.rating = "N/A";
+          profileData.tactics = "N/A";
+        });
+
+      console.log(profileData);
+      state.commit("setChessStats", profileData);
     },
     async updateStatistics(state) {
       // using fetch API due to keepAlive functionality
